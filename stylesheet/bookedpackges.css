@@ -1,0 +1,13 @@
+
+.card-title
+{
+  margin-top: -3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: rgba(228, 83, 57, 0.952);
+  background-color: white;
+}
+.card-img-top
+{
+  height: 6rem;
+}

@@ -1,0 +1,37 @@
+var app=angular.module("myapp",[]);
+app.controller("myctrl",function($scope)
+{
+  $scope.packages=[
+    {
+      "name":'BENGALURU',
+      "duration":"3days/2nights",
+      "price":5000,
+      "img":"vidhana.jpg"
+    },
+    {
+      "name":'MYSORE',
+      "duration":"3days/2nights",
+      "price":5000,
+      "img":"mysorepalace.jpg"
+    },
+    {
+      "name":'MADIKERI',
+      "duration":"3days/2nights",
+      "price":5000,
+      "img":"coorg.jpg"
+    },
+    {
+      "name":'MADIKERI',
+      "duration":"3days/2nights",
+      "price":5000,
+      "img":"coorg.jpg"
+    },
+    {
+      "name":'MADIKERI',
+      "duration":"3days/2nights",
+      "price":5000,
+      "img":"coorg.jpg"
+    }
+  ]
+
+});

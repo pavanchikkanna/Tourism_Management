@@ -1,0 +1,92 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  max-width: 300px;
+  text-align: center;
+  border: 1px skyblue; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  }
+body{
+  padding: 20px;
+}
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+.row {
+  margin: 8px -16px;
+}
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+.overlay {
+bottom:20px;  
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+.container:hover{
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.container:hover .overlay {
+  opacity: 1;
+ }
+
+img{
+    height:150px;
+   
+}
+
+.zoom {
+  padding: 10px;
+  transition: transform .2s;
+ 
+  height: 50%;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.06); /* IE 9 */
+  -webkit-transform: scale(1.06); /* Safari 3-8 */
+  transform: scale(1.06); 
+ 
+}
