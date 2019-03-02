@@ -10,25 +10,70 @@
     <!-- Latest compiled and minified CSS -->
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> </script>
+<script src="js/app.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{  
+ // Add smooth scrolling to all links
+ $("a").on('click', function(event) {
 
+// Make sure this.hash has a value before overriding default behavior
+if (this.hash !== "") {
+  // Prevent default anchor click behavior
+  event.preventDefault();
+
+  // Store hash
+  var hash = this.hash;
+
+  // Using jQuery's animate() method to add smooth page scroll
+  // The optional number (1000) specifies the number of milliseconds it takes to scroll to the specified area
+  $('html, body').animate({
+    scrollTop: $(hash).offset().top
+  }, 1000, function(){
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    window.location.hash = hash;
+  });
+} // End if
+});
+  
+});
+</script>
+<style>
+    /* This is used to change the default right-align of dropdown menu to left*/
+    .dropdown-menu {
+    left: auto;   
+    right: 0;
+  }
+  </style>
 </head>
-<body class="bg-light">
-  <header >
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+<body class="bg-light" ng-app="home">
+  <header ng-controller="navctrl">
+      <nav class="navbar navbar-expand-lg navbar-dark  bg-dark fixed-top scrolling-navbar">
         <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white ml-2" href="index.html">Karunadu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">home <span class="sr-only">(current)</span></a></li>
-            
-            <li class="nav-item "><a href="login.html"class="nav-link text-uppercase font-weight-bold text-white mr-2" >login</a></li>
-
+            <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">home</a></li>
+            <li class="nav-item myhover"><a href="#packages" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+            <li class="nav-item myhover "><a href="#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+            <li class="nav-item nav-link text-uppercase font-weight-bold mr-2 text-white myhover"  style="cursor: pointer">about</li>
+            <li class="nav-item " ng-show="loginRegister"><a href="login.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >login | register</a></li>
+            <li class="dropdown nav-item mr-3" ng-show="usericon">
+                <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="profile.html">profile</a>
+                    <a class="dropdown-item" href="bookedpackages.html">my packages</a>
+                    <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                  </div>
+              </li>
           </ul>
 
         </div>
@@ -84,20 +129,20 @@
 
      <!-- Divider -->
      
-    <section id="packages" class="text-center bg-white" style="margin-bottom:0rem;" >
+    <section id="packages" class="text-center bg-white" style="margin-bottom:0rem;" ng-controller="homeController">
           <br>
           <br>
                 <h1 class=" mt-3   text-warning font-weight-bold">EXPLORE &thinsp;<span style="color:black">PACKAGES</span></h1>
                 <h3 class="mb-4">choose packages according to your budget</h3>
-                <a class="btn btn-secondary mb-4 " href="packages.html" role="button" id="viewall">VIEW ALL</a>
+                <a class="btn btn-secondary mb-4 " ng-click="checksession()" role="button" id="viewall">VIEW ALL</a>
  
-            <div class="container  ">
+            <div class="container " >
                 <div class="row align-items-center ">
                     <div class="col-lg-4 col-md-4 mb-5">
                         <div class="card" style="border-style: solid;border-color: chocolate">
-                            <img class="card-img-top" src="vidhana.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="img/vidhana.jpg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title font-weight-bold">DISTRICT PACKAGES</h4>
+                                <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="district()">DISTRICT PACKAGES</button>
                                 
                                    
                                 
@@ -106,18 +151,18 @@
                         </div>
                         <div class="  col-lg-4 col-md-4 mb-5">
                             <div class="card" style="border-style: solid;border-color: chocolate">
-                                <img class="card-img-top" src="hampiutsav.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="img/hampiutsav.jpg" alt="Card image cap">
                                 <div class="card-body ">
-                                    <h4 class="card-title font-weight-bold">HISTORICAL PACKAGES </h4>
+                                  <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="historical()">HISTORICAL PACKAGES </button>
                                   
                                   </div>
                               </div>
                             </div>
                             <div class=" col-lg-4 col-md-4 mb-5">
                                 <div class="card" style="border-style: solid;border-color: chocolate">
-                                    <img class="card-img-top" src="coorg.jpg" alt="Card image cap">
+                                    <img class="card-img-top" src="img/coorg.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <h4 class="card-title font-weight-bold">NATURE PACKAGES</h4>
+                                      <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="nature()">NATURE PACKAGES</button>
                                         
                                       </div>
                                   </div>
@@ -127,10 +172,10 @@
             <div class="row align-items-center ">
                 <div class="col-lg-4 col-md-4 mb-5">
                     <div class="card" style="border-style: solid;border-color: chocolate">
-                        <img class="card-img-top" src="tiger.png" alt="Card image cap">
+                        <img class="card-img-top" src="img/tiger.png" alt="Card image cap">
                         <div class="card-body">
-                            <h4 class="card-title font-weight-bold">WILDLIFE PACKAGES</h4>
-                            
+                            <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="wildlife()">WILDLIFE PACKAGES</button>
+                                        
                                
                             
                           </div>
@@ -140,8 +185,8 @@
                         <div class="card" style="border-style: solid;border-color: chocolate">
                             <img class="card-img-top" src="img/devotional.jpg" alt="Card image cap">
                             <div class="card-body ">
-                                <h4 class="card-title font-weight-bold">DEVOTIONAL PACKAGES </h4>
-                              
+                                <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="devotional()">DEVOTIONAL PACKAGES</button>
+                                        
                               </div>
                           </div>
                         </div>
@@ -149,8 +194,8 @@
                             <div class="card" style="border-style: solid;border-color: chocolate">
                                 <img class="card-img-top" src="img/premium.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title font-weight-bold">PREMIUM PACKAGES</h4>
-                                    
+                                    <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="premium()">PREMIUM PACKAGES</button>
+                                        
                                   </div>
                               </div>
                             </div>
@@ -159,44 +204,12 @@
             </div>
             
     </section> 
-   
-     <section id="counter" >
-       <div class="cotainer mt-5 text-center">
-         <div class="row mt-2">
 
-         </div>
-         <div class="row justify-content-center bg-warning mt-5 mx-5 border-top-0 border-bottom-0 border border-dark ">
-           <div class="col-md-3 px-5 pt-2">
-             
-              <a class="fb-ic">
-                  <i class="far fa-list-alt fa-3x"></i>
-                </a>
-                <h2 class="text-white font-weight-bold">500</h2>
-                <p style="margin-top:-1rem;" class="text-white font-weight-bold">BOOKINGS</p>
-            
-
-           </div>
-           <div class="col-md-3 px-5 pt-2">
-              <i class="fas fa-user fa-3x"></i>
-              <h2 class="text-white font-weight-bold ">1500</h2>
-              <p style="margin-top:-1rem;" class="text-white font-weight-bold">USERS</p>
-
-           </div>
-           <div class="col-md-3 px-5 pt-2">
-              <i class="fas fa-suitcase fa-3x"></i>
-              <h2 class="text-white font-weight-bold">600</h2>
-              <p style="margin-top:-1rem;" class="text-white font-weight-bold">PACKAGES</p>
-
-           </div>
-
-         </div>
-
-       </div>
-
-     </section>
-     <section id="services" class="text-center mt-5 mb-5 ">
-    
-      <h1 class="mb-5 mt-5 font-weight-bold text-warning" >OUR&thinsp;<span style="color: black">SERVICES</span></h1>
+     <section id="services" class="text-center  ">
+    <br>
+    <br>
+    <br>
+      <h1 class="mb-5 font-weight-bold text-warning" >OUR&thinsp;<span style="color: black">SERVICES</span></h1>
        <div class="container">
          <div class="row justify-content-center">
            <div class="col-md-4">
@@ -245,12 +258,43 @@
          </div>
 
        </div>
+       <div class="cotainer  text-center">
+          <div class="row mt-2">
+ 
+          </div>
+          <div class="row justify-content-center bg-warning mt-5 mx-5 border-top-0 border-bottom-0 border border-dark ">
+            <div class="col-md-3 px-5 pt-2">
+              
+               <a class="fb-ic">
+                   <i class="far fa-list-alt fa-3x"></i>
+                 </a>
+                 <h2 class="text-white font-weight-bold">500</h2>
+                 <p style="margin-top:-1rem;" class="text-white font-weight-bold">BOOKINGS</p>
+             
+ 
+            </div>
+            <div class="col-md-3 px-5 pt-2">
+               <i class="fas fa-user fa-3x"></i>
+               <h2 class="text-white font-weight-bold ">1500</h2>
+               <p style="margin-top:-1rem;" class="text-white font-weight-bold">USERS</p>
+ 
+            </div>
+            <div class="col-md-3 px-5 pt-2">
+               <i class="fas fa-suitcase fa-3x"></i>
+               <h2 class="text-white font-weight-bold">600</h2>
+               <p style="margin-top:-1rem;" class="text-white font-weight-bold">PACKAGES</p>
+ 
+            </div>
+ 
+          </div>
+ 
+        </div>
       
       </section>
       <section id="gallery" class="text-center mt-5  bg-white">
           <h1 class="mb-5 mt-5 font-weight-bold text-warning" >OUR&thinsp;<span style="color: black">GALLERY</span></h1>
         <div class="container">
-          <div class="row">
+          <div class="row justify-content-center">
             <div class="col-md-6">
                 <!--Carousel Wrapper-->
 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
@@ -259,21 +303,21 @@
     <div class="carousel-inner" role="listbox">
       <!--First slide-->
       <div class="carousel-item active carousel-fade">
-        <img class="d-block w-100 " src="img/vidhana.jpg" alt="First slide">
+        <img class="d-block w-100 " src="img/home/palace.jpg" alt="First slide">
       </div>
       <!--/First slide-->
       <!--Second slide-->
       <div class="carousel-item carousel-fade">
-        <img class="d-block w-100 " src="img/pattadakallu.jpg" alt="Second slide">
+        <img class="d-block w-100 " src="img/home/mountain.jpg" alt="Second slide">
       </div>
       <!--/Second slide-->
       <!--Third slide-->
       <div class="carousel-item carousel-fade">
-        <img class="d-block w-100 " src="img/palace.jpg" alt="Third slide">
+        <img class="d-block w-100 " src="img/home/pattadakallu.jpg" alt="Third slide">
       </div>
       <!--/Third slide-->
       <div class="carousel-item carousel-fade">
-            <img class="d-block w-100 " src="img/mountain.jpg" alt="Third slide">
+            <img class="d-block w-100 " src="img/home/vidhansoudha.jpg" alt="Third slide">
           </div>
           
     </div>
@@ -300,7 +344,7 @@
         </div>
 
       </section>
-      <div class="container bg-white" style="margin-top: 2rem;margin-bottom: 2rem">
+      <div class="container bg-white" style="margin-top: 2rem;">
     
         </div>
      
@@ -423,9 +467,10 @@
     
       </footer>
       <!-- Footer -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

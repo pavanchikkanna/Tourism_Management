@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>karunadu</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="stylesheet/login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 
-<body>
+<body ng-app="myloginapp">
     <header>
             <nav class="navbar navbar-expand-lg navbar-dark  bg-dark fixed-top scrolling-navbar">
                     <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white ml-2" href="index.html">Karunadu</a>
@@ -41,17 +42,52 @@
 
           </div>
 <div class="container ">
+    
+  <div class="row justify-content-center" ng-show="sssiginmessage">
+      <div class="alert alert-danger  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+          <strong>{{messageData}}!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+  </div>
+  
+
+</div>
+  <div class="row justify-content-center" ng-show="sssigupmessage">
+      <div class="alert alert-success  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+          <strong>Successfully registerd!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+  </div>
+  <div class="row justify-content-center" ng-show="invalidEmail">
+      <div class="alert alert-danger  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+          <strong>Invalid Email!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+  </div>
+  <div class="row justify-content-center" ng-show="sssigup1message">
+      <div class="alert alert-danger  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+          <strong>Email already exist</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+  </div>
     <div class="row justify-content-center ">
-
-
-
-     
-
      
         <div class="col-md-6 border-warning shadow  "  style="border-width:medium;">
           
         <!-- Nav tabs -->
-        <ul class="nav nav-pills  " role="tablist">
+        <ul class="nav nav-pills px-5 " role="tablist">
             <li class="nav-item pills-1">
               <a class="nav-link active" id="signintab" data-toggle="tab" href="#panel7" role="tab">
                 Sign in</a>
@@ -65,21 +101,22 @@
           <!-- Tab panels -->
           <div class="tab-content">
            
-            <div class="tab-pane fade  show active" id="panel7" role="tabpanel" aria-labelledby="signintab">
+            <div class="tab-pane fade  show active" id="panel7" role="tabpanel" aria-labelledby="signintab" ng-controller="signinctrl">
   
               <div class="modal-body">
-                <form>
+                <form  ng-submit="checkuser()">
                     <div class="form-group">
-                      <label for="Inputname"><i class="fas fa-user mr-1"></i>User name</label>
-                      <input type="email" class="form-control" id="Inputname" aria-describedby="emailHelp" >
+                      <label for="Inputemail"><i class="fas fa-user mr-1"></i>Email </label>
+                      <input type="email" class="form-control" id="Inputemail" aria-describedby="emailHelp" ng-model="Email">
           
                     </div>
                     <div class="form-group">
                       <label for="InputPassword"><i class="fas fa-lock prefix mr-1"></i>Password</label>
-                      <input type="password" class="form-control" id="InputPassword" >
+                      <input type="password" class="form-control" id="InputPassword" ng-model="password" >
                     </div>
                   
-                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    <input type="submit" class="btn btn-primary" value="submit">
+                   
                   </form>
             
             </div>
@@ -88,28 +125,25 @@
             
             <div class="tab-pane fade" id="panel8" role="tabpanel" aria-labelledby="signuptab">
   
-              <div class="modal-body">
-                <form>
+              <div class="modal-body" ng-controller="signupctrl" >
+                <form  ng-submit="newuser()">
                     <div class="form-group">
                       <label for="InputEmail"> <i class="fas fa-envelope prefix mr-1"></i>Email address</label>
-                      <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" >
+                      <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" ng-model="emailgiven" >
           
                     </div>
                     <div class="form-group">
-                        <label for="phone"><i class="fas fa-mobile-alt mr-1"></i>Phone number</label>
-                        <input type="number" class="form-control" id="phone" >
+                        <label for="accountname"><i class="fas fa-user mr-1"></i>Account name</label>
+                        <input type="text" class="form-control" id="accountname" ng-model="accountname">
                       </div>
-                    <div class="form-group">
-                      <label for="InputPassword1"><i class="fas fa-lock prefix mr-1"></i>Password</label>
-                      <input type="password" class="form-control" id="InputPassword1" >
-                    </div>
+                    
 
                     <div class="form-group">
-                      <label for="InputPassword2"><i class="fas fa-lock prefix mr-1"></i>Repeat Password</label>
-                      <input type="password" class="form-control" id="InputPassword2" >
+                      <label for="InputPassword"><i class="fas fa-lock prefix mr-1"></i>Password</label>
+                      <input type="password" class="form-control" id="InputPassword" ng-model="password" >
                     </div>
                   
-                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    <input type="submit" class="btn btn-primary" value="submit">
                   </form>
             
             </div>

@@ -6,135 +6,145 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Karunadu</title>
     <link rel="stylesheet" href="stylesheet/bookedpackges.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-</head>
-<body class=" bg-white">
+    <style>
+        /* This is used to change the default right-align of dropdown menu to left*/
+        .dropdown-menu {
+        left: auto;   
+        right: 0;
+      }
+      </style>  
+  </head>
+<body class=" bg-white" ng-app="mybookings">
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
-            <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home <span class="sr-only">(current)</span></a></li>
-                
-             
-                <li class="dropdown nav-item">
-                    <a class="btn dropleft" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="profile.html">profile</a>
-                        <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                        <a class="dropdown-item" href="#">logout</a>
-                      </div>
-                  </li>
-                
-    
-              </ul>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+        <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+          <li class="dropdown nav-item mr-3" ng-controller="logctrl">
+              <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="profile.html">profile</a>
+                  <a class="dropdown-item" href="bookedpackages.html">my packages</a>
+                  <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                </div>
+            </li>
+        </ul>
 
-              
-            </div>
-          </nav>
+          
+        </div>
+      </nav>
                   <div class="row" style="margin-top: 5rem">
 
                   </div>
     </header>
-    <main>
+    <main  >
 
-       <div class="container mb-5 ">
-           <div class="row ml-2">
+       <div class="container mb-5" ng-controller="mybkgctrl">
+           <div class="row ml-2 justify-content-center">
               
-                    <h2 class="mb-5 font-weight-bold text-center text-warning">BOOKED&thinsp;<span style="color:black">PACKAGES</span></h2>
-                     
-           </div>
-           <div class="row mt-2 mb-2 d-flex py-2 border border-warning ">
-               <div class="col-md-4 px-3">
+            <div class="col-md-6 text-center">
+                <h2 class="mb-5 font-weight-bold text-center text-warning">BOOKED&thinsp;<span style="color:black">PACKAGES</span></h2>
+            </div>
                     
-                    <img src="img/vidhana.jpg" class="rounded float-left" alt="image" style="width:16rem;height:16rem">
-                           
-                          
-               </div>
-               <div class="col-md-8">
-                  <h4 class="mb-3"><strong>Chikkamagaluru package</strong></h4>
-                  <p><b>Duration:</b> 3 Days/2 Nights</p>
-                  <div class="row">
-                    <div class="col-md-4">
-                        <p><b>Number of adults:</b> 4 </p>
-                    </div>
-                    <div class="col-md-4">
-                        <p><b>Number of childrens:</b> 3 </p>
-                      </div>
-
-                  </div>
-                  <div class="row">
-                      <div class="col-md-4">
-                          <p><b>Depature date:</b> 1/02/2019</p>
-                      </div>
-                      <div class="col-md-4">
-                          <p><b>Depature address:</b> vijaynagara</p>
-                        </div>
-  
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p><b>Food type:</b> veg</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><b>Date of booking:</b> 21/01/2019</p>
-                          </div>
-    
-                      </div>
-                     
-                  <p><b><strong>Total cost&thinsp;</strong></b><strong>15000 INR</strong></p>
-                  <a class="btn btn-danger btn-md" href="booking.html">CANCEL</a>
-               </div>
-
            </div>
-           <div class="row mt-2 mb-2 d-flex py-2 border border-warning ">
+           <div class="row mt-2 mb-2 d-flex py-2 border border-warning " ng-repeat="d in cancelling" style="border-width:medium;">
               <div class="col-md-4 px-3">
                    
-                   <img src="img/vidhana.jpg" class="rounded float-left" alt="image" style="width:16rem;height:16rem">
+                   <img src={{d.packageicon}} class="rounded float-left" alt="image" style="width:16rem;height:16rem">
                           
                          
               </div>
-              <div class="col-md-8">
-                 <h4 class="mb-3"><strong>Chikkamagaluru package</strong></h4>
-                 <p><b>Duration:</b> 3 Days/2 Nights</p>
+              <div class="col-md-8 ">
+                 <h4 class="mb-3"><strong>{{d.packagename}} package</strong></h4>
+                 <p><b>Duration : </b> {{d.duration}} Days</p>
                  <div class="row">
                    <div class="col-md-4">
-                       <p><b>Number of adults:</b> 4 </p>
+                       <p><b>Number of adults : </b>{{d.adults}}</p>
                    </div>
                    <div class="col-md-4">
-                       <p><b>Number of childrens:</b> 3 </p>
+                       <p><b>Number of childrens : </b> {{d.children}} </p>
                      </div>
 
                  </div>
                  <div class="row">
                      <div class="col-md-4">
-                         <p><b>Depature date:</b> 1/02/2019</p>
+                         <p><b>Start date : </b>{{d.depaturedate}}</p>
                      </div>
                      <div class="col-md-4">
-                         <p><b>Depature address:</b> vijaynagara</p>
-                       </div>
+                        <p><b>End date : </b>{{d.enddate}}</p>
+                    </div>
+                     
  
                    </div>
                    <div class="row">
+                      <div class="col-md-4">
+                          <p><b>Depature address : </b> vijaynagar</p>
+                        </div>
                        <div class="col-md-4">
-                           <p><b>Food type:</b> veg</p>
-                       </div>
-                       <div class="col-md-4">
-                           <p><b>Date of booking:</b> 21/01/2019</p>
+                           <p><b>Date of booking : </b>{{d.dobooking}}</p>
                          </div>
    
                      </div>
                     
-                 <p><b><strong>Total cost&thinsp;</strong></b><strong>15000 INR</strong></p>
-                 <a class="btn btn-danger btn-md" href="booking.html">CANCEL</a>
+                 <p><b><strong>Total cost : &thinsp;</strong></b><strong> Rs {{d.totalcost}}</strong></p>
+                 <a class="btn btn-danger btn-md" role="button" ng-click="cancellation(d._id)">CANCEL</a>
               </div>
 
           </div>
+          <div class="row mt-2 mb-2 d-flex py-2 border border-warning " ng-repeat="d in noncancelling" style="border-width:medium;">
+              <div class="col-md-4 px-3">
+                   
+                   <img src={{d.packageicon}} class="rounded float-left" alt="image" style="width:16rem;height:16rem">
+                          
+                         
+              </div>
+              <div class="col-md-8 ">
+                 <h4 class="mb-3"><strong>{{d.packagename}} package</strong></h4>
+                 <p><b>Duration : </b> {{d.duration}} Days</p>
+                 <div class="row">
+                   <div class="col-md-4">
+                       <p><b>Number of adults : </b>{{d.adults}}</p>
+                   </div>
+                   <div class="col-md-4">
+                       <p><b>Number of childrens : </b> {{d.children}} </p>
+                     </div>
+
+                 </div>
+                 <div class="row">
+                     <div class="col-md-4">
+                         <p><b>Start date : </b>{{d.depaturedate}}</p>
+                     </div>
+                     <div class="col-md-4">
+                        <p><b>End date : </b>{{d.enddate}}</p>
+                    </div>
+ 
+                   </div>
+                   <div class="row">
+                      <div class="col-md-4">
+                          <p><b>Depature address : </b> vijaynagar</p>
+                        </div>
+                       <div class="col-md-4">
+                           <p><b>Date of booking : </b> {{d.dobooking}}</p>
+                         </div>
+   
+                     </div>
+                    
+                 <p><b><strong>Total cost : &thinsp;</strong></b><strong> Rs {{d.totalcost}}</strong></p>
+                 
+              </div>
+
+          </div>
+           
+         
 
        </div>
 

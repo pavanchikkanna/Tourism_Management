@@ -1,64 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Karunadu</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
- 
-  </head>
-<body class="bg-white" ng-app="myapplication" ng-controller="myCtrl">
-    <header>
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
-                    <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home <span class="sr-only">(current)</span></a></li>
-                        
-                     
-                        <li class="dropdown nav-item">
-                            <a class="btn dropleft" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="profile.html">profile</a>
-                                <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                                <a class="dropdown-item" href="#">logout</a>
-                              </div>
-                          </li>
-                        
-            
-                      </ul>
-  
-                      
-                    </div>
-                  </nav>
-                  <div class="row" style="margin-top: 5rem">
+    <main ng-controller="bookingController">
+        <div class="row" style="margin-top: 5rem">
 
-                  </div>
-    </header>
-    <main>
-       <div class="container">
+          </div>
+       <div class="container " >
               <form  class="mb-3 shadow  rounded  bg-white" style="border-width:medium;">
-                  <div class="row ml-2">
-                      <div class="col-md-6">
-                        <h3 class=" py-2 font-weight-bold text-warning">BOOKING&thinsp;<span style="color:black">DETAILS</span></h3>
+                  <div class="row justify-content-center ">
+                      <div class="col-md-6 text-center">
+                        <h3 class=" mt-2 py-2 font-weight-bold text-warning">BOOKING&thinsp;<span style="color:black">DETAILS</span></h3>
                       </div>
 
                   </div>
-                  <div class="row ml-2">
-                      <div class="form-group col-md-2">
+                  <div class="row mt-3 ml-2 justify-content-center">
+                      <div class="form-group col-md-3" ng-init="countad=1">
                             <label for="adult">Number of adults</label>
-                            <input type="number" class="form-control" id="adult" >
-
+                            <div id="adult">
+                              <button type="button" class="btn btn-secondary mr-4" ng-click="decradult()"><b>-</b></button>&thinsp;<b class="text-center" style="font-size:2rem;">{{countad}}</b>&thinsp;<button type="button" class="btn btn-secondary ml-4" ng-click="incradult()"><b>+</b></button>
+                            </div>
                       </div>
-                      <div class="form-group col-md-2">
-                            <label for="childrens">Number of childrens</label>
-                            <input type="number" class="form-control" id="childrens" >
+                      <div class="form-group col-md-3"  ng-init="countcd=0">
+                            <label for="childrens">Number of children</label>
+                            <div id="childrens">
+                                <button type="button" class="btn btn-secondary mr-4 " ng-click="decrchild()"><b>-</b></button>&thinsp;<b class="text-center" style="font-size:2rem;">{{countcd}}</b>&thinsp;<button type="button" class="btn btn-secondary ml-4" ng-click="incrchild()"><b>+</b></button>
+                              </div> 
 
                       </div>
                       
@@ -66,72 +30,69 @@
 
                   </div>
                   
-                  <div class="row ml-2">
-                      <div class="form-group col-md-4">
-                            <div class="form-check form-check-inline d-inline-flex p-2">
-                                <h6>Food type</h6>
-                                    <input class="form-check-input ml-3" type="radio" name="exampleRadios" id="veg" value="option1" checked>
-                                    <label class="form-check-label ml-2" for="veg">
-                                      only veg
-                                    </label>
-                                  
-                                    <input class="form-check-input ml-2" type="radio" name="exampleRadios" id="nonveg" value="option2">
-                                    <label class="form-check-label ml-2"  for="nonveg">
-                                      veg and nonveg
-                                    </label>
-                                  </div>
+                 
+                  <div class="row mt-5  justify-content-center">
+                      <div class="col-md-3 text-center   font-weight-bold ">
+                          <h5><b>Total price &thinsp;Rs </b> {{price}}</h5>
+
                       </div>
+                      <div class="col-md-3 " ng-hide="paybutton">
+                        <button type="button" class=" ml-2 btn btn-primary" ng-click="dateclash()">Pay</button>
+                      </div>
+
+                  </div>
+                  <div class="row mt-3">
+
+                  </div>
+                  <div ng-show="payment">
                     
-
-                  </div>
-                  <div class="row ml-2">
-                      <div class="col-md-2">
-                          <h5><b>Total prize</b> $0</h5>
+                      <div class="row  mt-2 justify-content-center">
+                            <div class="col-md-6 text-center">
+                              <h3 class="ml-2 mt-2 py-2 font-weight-bold text-warning">PAYMENT&thinsp;<span style="color:black">OPTIONS</span></h3>
+                            </div>
+      
+                        </div>
+                        <div class="row ml-2 mr-1 justify-content-center">
+                          <div class="form-group col-md-3">
+                              <label for="cardname">Name on card</label>
+                              <input type="text" class="form-control" id="cardname" ng-model="cardname">
+    
+                          </div>
+                          <div class="form-group col-md-3 ">
+                              <label for="cardno">Card number</label>
+                              <input type="number" class="form-control" id="cardno" ng-model="cardno" >
+    
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="cvc">CVC</label>
+                            <input type="text" class="form-control" id="cvc" ng-model="cvc">
+  
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="doe">Date of expiration</label>
+                          <input type="date" class="form-control" id="doe" ng-model="dateofexpire" >
+                          
 
                       </div>
-                      
-
-                  </div>
-                      <div class="row ml-2 mt-2">
-                            <div class="col-md-6">
-                              <h3 class=" py-2">Payment options</h3>
-                            </div>
-      
-                        </div>
-                        <div class="row ml-2">
-                          <div class="form-group col-md-4">
-                              <label for="cardname">Name on card</label>
-                              <input type="text" class="form-control" id="cardname" >
-    
-                          </div>
-                          <div class="form-group col-md-4">
-                              <label for="cardno">Card number</label>
-                              <input type="number" class="form-control" id="cardno" >
-    
-                          </div>
     
                         </div>
-                        <div class="row ml-2">
-                            <div class="form-group col-md-2">
-                                <label for="cvc">CVC</label>
-                                <input type="text" class="form-control" id="cvc" >
-      
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="doe">Date of expiration</label>
-                                <input type="date" class="form-control" id="doe" >
-                                
-      
-                            </div>
-                          </div>
-                            <div class="form-row ml-2 mt-2 mb-3">
+                       
+                            <div class="form-row ml-2 mt-2 mb-3 justify-content-center">
                               <div class="col-md-2">
-                                  <button type="button" class="btn btn-primary">Submit</button>
+                                  <button type="button" class="btn btn-outline-success" ng-click="submitbooking()">Submit</button>
         
                               </div>
     
                             </div>
-                  
+                  </div>
+                  <div ng-show="sorry" class="text-center ">
+                    <h1 class="ml-2 mt-2 py-2 font-weight-normal ">OOPS!</h1>
+                    <p>you have trip on these days</p>
+                    <a href="bookedpackages.html" class="btn btn-warning text-white">GO TO BOOKED PACKAGES</a>
+                  </div>
+                  <div class="row" style="margin-top:2rem">
+
+                  </div>
                   
                         
   
@@ -143,130 +104,3 @@
 
        </div>
     </main>
-<!-- Footer -->
-<footer class="page-footer font-small unique-color-dark">
-
-  <div class="bg-warning">
-    <div class="container">
-
-      <!-- Grid row-->
-      <div class="row py-4 d-flex align-items-center">
-
-        <!-- Grid column -->
-        <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Get connected with us on social networks!</h6>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-6  text-center text-md-right">
-
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f  fa-lg mr-4"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter fa-lg mr-4"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g fa-lg mr-4"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in fa-lg mr-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram fa-lg"> </i>
-          </a>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row-->
-
-    </div>
-  </div>
-
-
-
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left bg-dark ">
-
-    <!-- Grid row -->
-    <div class="row ">
-
-      <!-- Grid column -->
-      <div class="col-md-3  mx-auto mb-4 mt-2">
-
-        <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold text-white">Karunadu</h6>
-       
-        <p class="text-white">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit.</p>
-
-      </div>
-      <!-- Grid column -->
-
-     
-
-      
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-2">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold text-white">Contact</h6>
-      
-        <p class="text-white">
-           vijaynagar,bengaluru,karnataka,india</p>
-        <p class="text-white">
-          karunadu@gmail.com</p>
-        <p class="text-white">
-           8867762336</p>
-        <p class="text-white">
-           9902587276</p>
-
-      </div>
-       <!-- Grid column -->
-  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
-
-          <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold text-white">Useful links</h6>
-          
-          <p>
-            <a href="#!" class="text-white">About us</a>
-          </p>
-          
-      
-          
-
-        </div>
-        <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3 text-white bg-dark" >© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/" class="text-white">karunadu.com</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-    
-        
- 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-</body>
-</html>

@@ -5,107 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Karunadu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-</head>
-<body class="bg-white">
+<script>
+
+  $(document).ready(function()
+  {
+    $('input').change(function()
+    {
+      $("#changesDiv").show();
+    });
+    $("#changesDiv").hide();
+  
+  });
+</script>
+  <style>
+      /* This is used to change the default right-align of dropdown menu to left*/
+      .dropdown-menu {
+      left: auto;   
+      right: 0;
+    }
+    </style>   
+  </head>
+<body class="bg-white" ng-app="profile">
         <header>
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
-                <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home <span class="sr-only">(current)</span></a></li>
-                    
-                 
-                    <li class="dropdown nav-item">
-                        <a class="btn dropleft" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="profile.html">profile</a>
-                            <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                            <a class="dropdown-item" href="#">logout</a>
-                          </div>
-                      </li>
-                    
-        
-                  </ul>
-
-                  
-                </div>
-              </nav>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+            <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+                <li class="dropdown nav-item mr-3" ng-controller="logctrl">
+                    <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="profile.html">profile</a>
+                        <a class="dropdown-item" href="bookedpackages.html">my packages</a>
+                        <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                      </div>
+                  </li>
+              </ul>
+    
+              
+            </div>
+          </nav>
                       <div class="row" style="margin-top: 5rem">
     
                       </div>
         </header>
         <main>
-            <div class="container"> 
-                <form class="border border-danger bg-white">
-                        <div class="row ml-2">
-                                <div class="col-md-6">
-                                  <h3 class=" py-2 font-weight-bold text-warning ">PROFILE&thinsp;<span style="color: black">DETAILS</span></h3>
-                                </div>
-                        </div>
-                                <div class="row ml-2">
+            <div class="container   bg-white" > 
+                
+                <form class="shadow  rounded" ng-controller="profilectrl" style="border-width:medium;">
+                  <div class="row ml-2 justify-content-center">
+                    <div class="col-md-6 text-center">
+                      <h3 class=" py-2 font-weight-bold text-warning ">PROFILE&thinsp;<span style="color: black">DETAILS</span></h3>
+                    </div>
+            </div>
+                                <div class="row ml-2 mr-2 mt-2">
                                     <div class="form-group col-md-4">
-                                            <label for="firstname">First name</label>
-                                            <input type="text" class="form-control" id="firstname" >
+                                            <label for="accountname">Account name</label>
+                                            <input type="text" class="form-control" id="accountname" ng-model="accountname">
                 
                                     </div>
-                                    <div class="form-group col-md-4">
-                                            <label for="lastname">Last name</label>
-                                            <input type="text" class="form-control" id="lastname" >
-                                        </div>
-
-                                </div>
-                                <div class="row ml-2">
                                     <div class="form-group col-md-2">
-                                        <label for="dob">Date of birth</label>
-                                          <input type="date" class="form-control" id="dob">
-                                    </div>
-                                    <div class=" form-group col-md-2">
-                                            <label for="gender">Gender</label>
-                                            <select id="gender" class="form-control">
-                                              <option selected>male</option>
-                                              <option>female</option>
-                                              <option>other</option>
-                                            </select>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                            <label for="phone">Phone number</label>
-                                            <input type="number" class="form-control" id="phone" >
-                                    </div>
+                                      <label for="dob">Date of birth</label>
+                                        <input type="date" class="form-control" id="dob" ng-model="dob">
+                                  </div>
+                                 
+                                  <div class="form-group col-md-3">
+                                          <label for="phone">Phone number</label>
+                                          <input type="number" class="form-control" id="phone" ng-model="phone" >
+                                  </div>
 
                                 </div>
+                             
                                 <div class="row ml-2 mt-2">
                                     <div class="col-md-4">
                                     <h5>Address</h5>
                                     </div>
 
                                 </div>
-                                <div class="row ml-2">
+                                <div class="row ml-2 mr-2">
                                     <div class=" form-group col-md-3">
                                             <label for="street">Street</label>
-                                            <input type="text" class="form-control" id="street" >
+                                            <input type="text" class="form-control" id="street" ng-model="street">
                 
                                     </div>
                                     <div class="form-group col-md-3">
                                             <label for="city">city</label>
-                                            <input type="text" class="form-control" id="city" >
+                                            <input type="text" class="form-control" id="city" ng-model="city" >
                 
                                     </div>
                                     <div class="form-group col-md-3">
                                             <label for="district">district</label>
-                                            <input type="text" class="form-control" id="district" >
+                                            <input type="text" class="form-control" id="district" ng-model="district">
                 
                                     </div>
                                 </div>
-                                <div class="row ml-2">
+                                <div class="row ml-2 mr-2">
                                         <div class="form-group col-md-4">
                                                 <label for="email">Email</label>
-                                                <input type="email" class="form-control" id="email" >
+                                                <input type="email" class="form-control" id="email" ng-model="email">
                     
                                         </div>
                                         <div class="form-group col-md-4">
@@ -116,19 +122,25 @@
                                         
 
                                 </div>
-                                <div class="row ml-2">
+                                <div id="changesDiv" >
+                                  <div class="row ml-2" id="confirmation">
                                     <div class="form-group col-md-2">
-                                            <a class="btn btn-primary" href="#" role="button">save changes</a>
+                                            <button class="btn btn-primary"  role="button" id="savechanges" ng-click="savechanges()">save changes</button>
                                     </div>
                                     <div class="form-group col-md-2">
-                                            <a class="btn" href="#" role="button">cancel</a>
+                                            <a class="btn"  role="button" ng-click="resetchanges()">cancel</a>
                                     </div>
-
+                
                                 </div>
+                                </div>
+                                
+                               
                 </form>
-                <div class="row" style="margin-bottom: 5rem">
+                
+                
+            </div>
+            <div class="row" style="margin-bottom: 5rem">
 
-                    </div>
             </div>
         </main>
         <!-- Footer -->
