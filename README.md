@@ -3,8 +3,10 @@ A Tourism management system , which can be used as a Web app for Karnataka state
 
 # Developed using :hearts:
 
-MEAN stack technology
-**Front end :** HTML 5, CSS 3,Bootstrap 4, AngularJS          
+ **MEAN** stack technology
+ 
+**Front end :** HTML 5, CSS 3,Bootstrap 4, AngularJS   
+
 **Back end :** NodeJS, ExpressJS
 
 **Database :** MongoDB 
