@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>karunadu</title>
+    <title>karunaduchikkanna</title>
     <link rel="stylesheet" href="stylesheet/login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -107,12 +107,12 @@
                 <form  ng-submit="checkuser()">
                     <div class="form-group">
                       <label for="Inputemail"><i class="fas fa-user mr-1"></i>Email </label>
-                      <input type="email" class="form-control" id="Inputemail" aria-describedby="emailHelp" ng-model="Email">
+                      <input type="email" class="form-control" id="Inputemail" aria-describedby="emailHelp" required ng-model="Email">
           
                     </div>
                     <div class="form-group">
                       <label for="InputPassword"><i class="fas fa-lock prefix mr-1"></i>Password</label>
-                      <input type="password" class="form-control" id="InputPassword" ng-model="password" >
+                      <input type="password" class="form-control" id="InputPassword" ng-model="password" required >
                     </div>
                   
                     <input type="submit" class="btn btn-primary" value="submit">
@@ -129,18 +129,18 @@
                 <form  ng-submit="newuser()">
                     <div class="form-group">
                       <label for="InputEmail"> <i class="fas fa-envelope prefix mr-1"></i>Email address</label>
-                      <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" ng-model="emailgiven" >
+                      <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"  ng-model="emailgiven" >
           
                     </div>
                     <div class="form-group">
                         <label for="accountname"><i class="fas fa-user mr-1"></i>Account name</label>
-                        <input type="text" class="form-control" id="accountname" ng-model="accountname">
+                        <input type="text" class="form-control" id="accountname" ng-model="accountname" >
                       </div>
                     
 
                     <div class="form-group">
                       <label for="InputPassword"><i class="fas fa-lock prefix mr-1"></i>Password</label>
-                      <input type="password" class="form-control" id="InputPassword" ng-model="password" >
+                      <input type="password" class="form-control" id="InputPassword" ng-model="password" minlength="8"  >
                     </div>
                   
                     <input type="submit" class="btn btn-primary" value="submit">

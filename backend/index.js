@@ -6,8 +6,8 @@ let bodyParser=require('body-parser');
 let app=express();
 let bp=bodyParser.json();
 var nodemailer = require('nodemailer');
-
-mongoose.connect('mongodb://pavan:chikka1998@ds123465.mlab.com:23465/karunadu');
+//MODIFY ACCORDING TO YOUR USERNAME AND PASSWORD IN MLABS
+mongoose.connect('mongodb://username:password@ds123465.mlab.com:23465/karunadu');
 //package document 
 let packageschema=new mongoose.Schema(
     {
@@ -80,8 +80,8 @@ app.listen(3000);
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'pavanravikumar1998@gmail.com',
-      pass: '9902587276'
+      user: 'abcdddddd@gmail.com', //ENTER YOUR EMAIL ID  AND PASSWORD
+      pass: '1234567890'
     }
   });
 //this routing is used for sigin purpose
@@ -301,3 +301,36 @@ app.post("/cancelbooking",bp,function(req,res)
       res.send({"message":"ok"})
     });
 });
+//this  routing is used for reseting userpassword
+app.post("/resetpswd",bp,function(req,res)
+{
+    console.log("it's working")
+    usersModel.findOneAndUpdate({"email":req.body.email},{$set:{"password":req.body.password}},
+    {new: true},function(err,data)
+ {
+console.log(data);
+res.send({"message":"ok"})
+ });
+})
+
+app.post("/contactus",bp,function(req,res)
+{
+    console.log("ya working")
+    var mailOptions = {
+        from: 'pavanravikumar1998@gmail.com',
+        to: req.body.email,
+        subject:req.body.subject,
+        text: req.body.name+","+req.body.message
+      };
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            signupmssg="not ok"
+            res.send({"message":signupmssg})
+        } else {
+            signupmssg="ok"
+            res.send({"message":signupmssg})
+    
+          console.log('Email sent: ' + info.response);
+        }
+      });
+})

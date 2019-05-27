@@ -64,14 +64,14 @@ if (this.hash !== "") {
             <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">home</a></li>
             <li class="nav-item myhover"><a href="#packages" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
             <li class="nav-item myhover "><a href="#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
-            <li class="nav-item nav-link text-uppercase font-weight-bold mr-2 text-white myhover"  style="cursor: pointer">about</li>
+            <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
             <li class="nav-item " ng-show="loginRegister"><a href="login.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >login | register</a></li>
             <li class="dropdown nav-item mr-3" ng-show="usericon">
-                <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+                <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="profile.html">profile</a>
-                    <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                    <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                    <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x " ></i> Profile</a>
+                    <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                    <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
                   </div>
               </li>
           </ul>
@@ -138,35 +138,39 @@ if (this.hash !== "") {
  
             <div class="container " >
                 <div class="row align-items-center ">
+                  <div class="col-lg-4 col-md-4 mb-5">
+                    <div class="card" style="border-style: solid;border-color: chocolate">
+                        <img class="card-img-top" src="img/vidhana.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="district()">DISTRICT PACKAGES</button>
+                                        
+                               
+                            
+                          </div>
+                      </div>
+                    </div>
                     <div class="col-lg-4 col-md-4 mb-5">
+                      <div class="card" style="border-style: solid;border-color: chocolate">
+                          <img class="card-img-top" src="img/hampiutsav.jpg" alt="Card image cap">
+                          <div class="card-body">
+                              <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="historical()">HISTORICAL PACKAGES</button>
+                                          
+                                 
+                              
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 mb-5">
                         <div class="card" style="border-style: solid;border-color: chocolate">
-                            <img class="card-img-top" src="img/vidhana.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="img/coorg.jpg" alt="Card image cap">
                             <div class="card-body">
-                                <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="district()">DISTRICT PACKAGES</button>
-                                
+                                <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="nature()">NATURE PACKAGES</button>
+                                            
                                    
                                 
                               </div>
                           </div>
                         </div>
-                        <div class="  col-lg-4 col-md-4 mb-5">
-                            <div class="card" style="border-style: solid;border-color: chocolate">
-                                <img class="card-img-top" src="img/hampiutsav.jpg" alt="Card image cap">
-                                <div class="card-body ">
-                                  <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="historical()">HISTORICAL PACKAGES </button>
-                                  
-                                  </div>
-                              </div>
-                            </div>
-                            <div class=" col-lg-4 col-md-4 mb-5">
-                                <div class="card" style="border-style: solid;border-color: chocolate">
-                                    <img class="card-img-top" src="img/coorg.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <button type ="button" class="card-title font-weight-bold btn btn-warning " ng-click="nature()">NATURE PACKAGES</button>
-                                        
-                                      </div>
-                                  </div>
-                                </div>
 
             </div>
             <div class="row align-items-center ">
@@ -431,11 +435,7 @@ if (this.hash !== "") {
                  vijaynagar,bengaluru,karnataka,india</p>
               <p class="text-white">
                 karunadu@gmail.com</p>
-              <p class="text-white">
-                 8867762336</p>
-              <p class="text-white">
-                 9902587276</p>
-    
+              
             </div>
              <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>karunadu</title>
+    <link rel="stylesheet" href="about1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<meta name="description" content="Circle Hover Effects with CSS Transitions" />
+<meta name="keywords" content="circle, border-radius, hover, css3, transition, image, thumbnail, effect, 3d" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="../favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/style7.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> </script>
+<script src="js/app.js"></script>
+<style>
+  /* This is used to change the default right-align of dropdown menu to left*/
+  .dropdown-menu {
+  left: auto;   
+  right: 0;
+}
+</style>
+</head>
+<body ng-app="aboutus">
+    <header ng-controller="abt_nav_ctrl">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+            <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">home</a></li>
+                <li class="nav-item myhover"><a href="packages.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+                <li class="nav-item myhover "><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+                <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
+                <li class="nav-item " ng-show="loginRegister"><a href="login.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >login | register</a></li>
+                <li class="dropdown nav-item mr-3" ng-show="usericon">
+                    <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x " ></i> Profile</a>
+                        <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                        <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
+                      </div>
+                  </li>
+              </ul>
+              
+            </div>
+          </nav>
+                  
+    </header>
+    <main>
+      
+      <section>
+        <br><br><br>
+         <div class="row d-flex justify-content-center text-center">
+         <h1 class=" mt-3   text-warning font-weight-bold">ABOUT &thinsp;<span style="color:black">US</span></h1>
+         <br>
+         <div class="card-body"id="ab">
+          <p> Choosing the right Tourism Website for your upcoming family vacation, a business trip or just to assuage your wanderlust may seem like a complicated process, but it doesn’t have to be.
+     </p><p>
+           There are many reasons as to why we choose a certain Website; be it by price, location, amenities, ease of booking, type of facility, etc. One of the best ways to cut your trip expenses is by choosing the right websites that fits your needs at the lowest cost possible.
+         </p><p>  
+           Travelling agent industry is well represented over the internet but it is not easy to search and find the tourism agent telephone number, website and email address.Karunadu.com of course takes care of it and provides all you want to know about the Packages and Destinations!
+          </p> <p>
+           When choosing a Travel agency, always consult Karunadu.com 
+        </p> </div>
+         </div>
+         <br><br>
+         <section ng-controller="messagectrl">
+            <h1 class=" mt-3  text-center text-warning font-weight-bold">CONTACT &thinsp;<span style="color:black">US</span></h1>
+        <div class="container bg-white">
+          <div class="row justify-content-center">
+         <div class="col-md-6">
+            <form >
+                <div class="form-group">
+                  <label for="exampleFormControlInput1" class="font-weight-bold "> <i class="fas fa-user fa-1x "></i> Enter your name </label>
+                  <input type="text" class="form-control w-100" id="exampleFormControlInput1" required ng-model="name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput2" class="font-weight-bold"><i class="fas fa-envelope fa-1x"></i> Enter your email </label>
+                    <input type="email" class="form-control" id="exampleFormControlInput2" required  ng-model="email">
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleFormControlInput3" class="font-weight-bold"><i class="fas fa-tag fa-1x"></i> Subject</label>
+                      <input type="text" class="form-control w-100" id="exampleFormControlInput3" required ng-model="subject">
+                    </div>
+                
+              
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="font-weight-bold"><i class="fas fa-comment-alt fa-1x"></i> Message</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" required ng-model="message"></textarea>
+                </div>
+                <div class="form-group col-md-2">
+                    <button class="btn btn-primary btn-lg "  role="button" id="savechanges" ng-click="send()">Send</button>
+            </div>
+              </form>
+         </div>
+         <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0513947843037!2d77.53480610765025!3d12.968563155391138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3dde41c9d541%3A0xdd5400ac1d9e0a9a!2sNIIT+Bangalore+Vijayanagar+Centre!5e0!3m2!1sen!2sin!4v1552667720343" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          </div>
+          <div class="row justify-content-center" ng-show="successalert">
+              <div class="alert alert-success  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+                  <strong>Successfully sent</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+        
+          </div>
+          
+        </div>
+        
+          </section>
+        <br><br>
+         <div class="row d-flex justify-content-center text-center"><h1 class=" mt-3   text-warning font-weight-bold">OUR &thinsp;<span style="color:black">TEAM</span></h1> </div>
+       
+             <section class="main">
+           <div class="container">
+                 <ul class="ch-grid">
+                   <li>
+                     <div class="ch-item">				
+                       <div class="ch-info">
+                         <div class="ch-info-front ch-img-1"></div>
+                         <div class="ch-info-back">
+                           <h3>KARTHIK V</h3>
+                           <p>Team Member</p>
+                         </div>	
+                       </div>
+                     </div>
+                   </li>
+                   <li>
+                     <div class="ch-item">
+                       <div class="ch-info">
+                         <div class="ch-info-front ch-img-2"></div>
+                         <div class="ch-info-back">
+                           <h3>AMRUTHA KS</h3>
+                           <p>Team Member </p>
+                         </div>
+                       </div>
+                     </div>
+                   </li>
+                   <li>
+                     <div class="ch-item">
+                       <div class="ch-info">
+                         <div class="ch-info-front ch-img-3"></div>
+                         <div class="ch-info-back">
+                           <h3>CHAITANYA</h3>
+                           <p>Team Member</a></p>
+                         </div>
+                       </div>
+                     </div>
+                   </li>         
+                   <li>
+                       <div class="ch-item">
+                         <div class="ch-info">
+                           <div class="ch-info-front ch-img-4"></div>
+                           <div class="ch-info-back">
+                             <h3>KARTHIK A</h3>
+                             <p>Team Member</p>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                     <li>
+                       <div class="ch-item">
+                         <div class="ch-info">
+                           <div class="ch-info-front ch-img-5"></div>
+                           <div class="ch-info-back">
+                             <h3>PAVAN R</h3>
+                             <p>Team Leader</a></p>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                   
+                 </ul>
+           </div>
+               </section>
+             </div>
+         <br>
+        
+       </section>
+    </main>
+    <!-- Footer -->
+   <footer class="page-footer font-small unique-color-dark">
+
+    <div class="bg-warning">
+    
+  
+        <!-- Grid row-->
+        <div class="row py-3 px-3 d-flex align-items-center">
+  
+          <!-- Grid column -->
+          <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-6  text-center text-md-right">
+  
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fab fa-facebook-f  fa-lg mr-4"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fab fa-twitter fa-lg mr-4"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="fab fa-google-plus-g fa-lg mr-4"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fab fa-linkedin-in fa-lg mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="fab fa-instagram fa-lg"> </i>
+            </a>
+  
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row-->
+  
+      </div>
+    
+  
+  
+  
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left bg-dark ">
+  
+      <!-- Grid row -->
+      <div class="row ">
+  
+        <!-- Grid column -->
+        <div class="col-md-4  mx-auto mb-4 mt-2">
+  
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold text-white">Karunadu</h6>
+         
+          <p class="text-white">A tourism website which helps the tourist people for exploring karnataka .</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+       
+  
+        
+  
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-2">
+  
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold text-white">Contact</h6>
+        
+          <p class="text-white">
+             vijaynagar,bengaluru,karnataka,india</p>
+          <p class="text-white">
+            karunadu@gmail.com</p>
+          <p class="text-white">
+             8867762336</p>
+          <p class="text-white">
+             9902587276</p>
+  
+        </div>
+         <!-- Grid column -->
+          <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 text-white bg-dark" >© 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" class="text-white">karunadu.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+          
+</body>
+</html>

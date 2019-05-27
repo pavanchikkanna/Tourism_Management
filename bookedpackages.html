@@ -29,12 +29,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
           <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+          <li class="nav-item myhover"><a href="packages.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+          <li class="nav-item myhover "><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+          <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
           <li class="dropdown nav-item mr-3" ng-controller="logctrl">
-              <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+              <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="profile.html">profile</a>
-                  <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                  <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                  <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x " ></i> Profile</a>
+                  <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                  <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -56,6 +59,16 @@
             </div>
                     
            </div>
+           <div class="row ml-2 justify-content-center" ng-show="empty">
+             <div class="col-md-6 text-center">
+                
+                    <h1 class="ml-2 mt-2 py-2 font-weight-normal ">EMPTY!</h1>
+                    <p>you donot have any packages</p>
+                    <a href="packages.html" class="btn btn-warning text-white">SELECT  PACKAGES</a>
+                  
+             </div>
+
+           </div>
            <div class="row mt-2 mb-2 d-flex py-2 border border-warning " ng-repeat="d in cancelling" style="border-width:medium;">
               <div class="col-md-4 px-3">
                    
@@ -71,7 +84,7 @@
                        <p><b>Number of adults : </b>{{d.adults}}</p>
                    </div>
                    <div class="col-md-4">
-                       <p><b>Number of childrens : </b> {{d.children}} </p>
+                       <p><b>Number of children : </b> {{d.children}} </p>
                      </div>
 
                  </div>

@@ -17,6 +17,8 @@
     $('input').change(function()
     {
       $("#changesDiv").show();
+      
+      
     });
     $("#changesDiv").hide();
   
@@ -41,12 +43,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+                <li class="nav-item myhover"><a href="packages.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+                <li class="nav-item myhover "><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+                <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
                 <li class="dropdown nav-item mr-3" ng-controller="logctrl">
-                    <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+                    <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="profile.html">profile</a>
-                        <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                        <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                        <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x "></i> Profile</a>
+                        <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                        <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
                       </div>
                   </li>
               </ul>
@@ -59,9 +64,9 @@
                       </div>
         </header>
         <main>
-            <div class="container   bg-white" > 
+            <div class="container  bg-white" > 
                 
-                <form class="shadow  rounded" ng-controller="profilectrl" style="border-width:medium;">
+                <form class="shadow  rounded"  style="border-width:medium;" ng-controller="profilectrl">
                   <div class="row ml-2 justify-content-center">
                     <div class="col-md-6 text-center">
                       <h3 class=" py-2 font-weight-bold text-warning ">PROFILE&thinsp;<span style="color: black">DETAILS</span></h3>
@@ -73,14 +78,14 @@
                                             <input type="text" class="form-control" id="accountname" ng-model="accountname">
                 
                                     </div>
-                                    <div class="form-group col-md-2">
+                                    <div class="form-group col-md-3">
                                       <label for="dob">Date of birth</label>
                                         <input type="date" class="form-control" id="dob" ng-model="dob">
                                   </div>
                                  
                                   <div class="form-group col-md-3">
                                           <label for="phone">Phone number</label>
-                                          <input type="number" class="form-control" id="phone" ng-model="phone" >
+                                          <input type="number" maxlength="12" minlength="10" class="form-control" id="phone" ng-model="phone" >
                                   </div>
 
                                 </div>
@@ -109,38 +114,34 @@
                                     </div>
                                 </div>
                                 <div class="row ml-2 mr-2">
+                                        
                                         <div class="form-group col-md-4">
-                                                <label for="email">Email</label>
-                                                <input type="email" class="form-control" id="email" ng-model="email">
-                    
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                                <label for="password">Password</label>
-                                                <input type="password" class="form-control" id="password" >
-                                                <a href="#" >change password</a>
+                                            <a class="btn btn-secondary " href="reset.html" role="button">Reset password</a>
                                         </div>
                                         
 
                                 </div>
-                                <div id="changesDiv" >
-                                  <div class="row ml-2" id="confirmation">
-                                    <div class="form-group col-md-2">
-                                            <button class="btn btn-primary"  role="button" id="savechanges" ng-click="savechanges()">save changes</button>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                            <a class="btn"  role="button" ng-click="resetchanges()">cancel</a>
-                                    </div>
-                
-                                </div>
-                                </div>
+                               
+                                  <div id="changesDiv"  >
+                                    <div class="row ml-2" id="confirmation">
+                                      <div class="form-group col-md-2">
+                                              <button class="btn btn-primary"  role="button" id="savechanges" ng-click="savechanges()">save changes</button>
+                                      </div>
+                                      <div class="form-group col-md-2">
+                                              <a class="btn"  role="button" ng-click="resetchanges()">cancel</a>
+                                      </div>
+                  
+                                  </div>
+                                  </div>
+                                
+                               
                                 
                                
                 </form>
                 
-                
-            </div>
             <div class="row" style="margin-bottom: 5rem">
 
+            </div>
             </div>
         </main>
         <!-- Footer -->

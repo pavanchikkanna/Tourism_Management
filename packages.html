@@ -32,12 +32,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
           <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+          <li class="nav-item myhover"><a href="packages.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+          <li class="nav-item myhover "><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+          <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
           <li class="dropdown nav-item mr-3" ng-controller="logctrl">
-              <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user fa-2x " style="color:white"></i></button>
+              <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="profile.html">profile</a>
-                  <a class="dropdown-item" href="bookedpackages.html">my packages</a>
-                  <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;">logout</a>
+                  <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x "></i> Profile</a>
+                  <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                  <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
                 </div>
             </li>
         </ul>

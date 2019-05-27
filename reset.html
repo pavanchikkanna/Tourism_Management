@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>karunadu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <style>
+      /* This is used to change the default right-align of dropdown menu to left*/
+      .dropdown-menu {
+      left: auto;   
+      right: 0;
+    }
+    </style>   
+</head>
+<body  class="bg-white" ng-app="reset">
+     <header>
+
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+            <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white" href="index.html">Karunadu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active mr-3"><a href="index.html" class="nav-link text-uppercase font-weight-bold text-white">home </a></li>
+                <li class="nav-item myhover"><a href="packages.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+                <li class="nav-item myhover "><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+                <li class="nav-item "> <a href="about1.html"class="nav-link text-uppercase font-weight-bold text-white mr-4" >about</a></li>
+                <li class="dropdown nav-item mr-3" ng-controller="logctrl">
+                    <button class="btn " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button"> <i class="fas fa-user-circle fa-2x " style="color:white"></i></button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-1x "></i> Profile</a>
+                        <a class="dropdown-item" href="bookedpackages.html"><i class="fas fa-suitcase fa-1x"></i> My packages</a>
+                        <a class="dropdown-item " ng-click="logout()"  id="#logout" style="cursor:pointer;"><i class="fas fa-sign-out-alt fa-1x"></i> Logout</a>
+                      </div>
+                  </li>
+              </ul>
+    
+              
+            </div>
+          </nav>
+                      <div class="row" style="margin-top: 5rem">
+    
+                      </div>
+        </header>
+ <main>
+        <div class="row" style="margin-top: 3rem">
+
+            </div>
+    <div class="container" ng-controller="resetctrl">
+            <div class="row ml-2 justify-content-center">
+                    <div class="col-md-6 text-center">
+                      <h3 class=" py-2 font-weight-bold text-warning ">PASSWORD&thinsp;<span style="color: black">RESET</span></h3>
+                    </div>
+            </div>
+            <div class="row justify-content-center" ng-show="dangeralert">
+                    <div class="alert alert-danger  alert-dismissible fade show text-center mx-5 col-md-4" role="alert">
+                        <strong>Invalid email</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+              
+                </div>
+
+                <div class="row justify-content-center" ng-show="successalert">
+                        <div class="alert alert-success  alert-dismissible fade show text-center mx-5 col-md-4" role="alert">
+                            <strong>Successfully updated</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                  
+                    </div> 
+                    
+             <div class="row justify-content-center ">
+                 <div class="col-md-4 border-warning shadow  "  style="border-width:medium;">
+                        <form  ng-submit="updatepswd()">
+                                <div class="form-group mt-3">
+                                  <label for="Inputemail"><i class="fas fa-user mr-1"></i>Email </label>
+                                  <input type="email" class="form-control" id="Inputemail" aria-describedby="emailHelp" required ng-model="Email">
+                      
+                                </div>
+                                <div class="form-group">
+                                  <label for="InputPassword"><i class="fas fa-lock prefix mr-1"></i>Password</label>
+                                  <input type="password" class="form-control" id="InputPassword" ng-model="password" required >
+                                </div>
+                              
+                                <input type="submit" class="btn btn-primary mb-3" value="submit">
+                               
+                              </form>
+
+                 </div>
+
+             </div>
+    </div>
+    <div class="row" style="margin-top: 5rem">
+
+        </div>
+ </main>
+           <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+
+    <div class="bg-warning">
+      <div class="container">
+  
+        <!-- Grid row-->
+        <div class="row py-4 d-flex align-items-center">
+  
+          <!-- Grid column -->
+          <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-6  text-center text-md-right">
+  
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fab fa-facebook-f  fa-lg mr-4"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fab fa-twitter fa-lg mr-4"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="fab fa-google-plus-g fa-lg mr-4"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fab fa-linkedin-in fa-lg mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="fab fa-instagram fa-lg"> </i>
+            </a>
+  
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row-->
+  
+      </div>
+    </div>
+  
+  
+  
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left bg-dark ">
+  
+      <!-- Grid row -->
+      <div class="row ">
+  
+        <!-- Grid column -->
+        <div class="col-md-3  mx-auto mb-4 mt-2">
+  
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold text-white">Karunadu</h6>
+         
+          <p class="text-white">A tourism website which helps the tourist people for exploring karnataka .</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+       
+  
+        
+  
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-2">
+  
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold text-white">Contact</h6>
+        
+          <p class="text-white">
+             vijaynagar,bengaluru,karnataka,india</p>
+          <p class="text-white">
+            karunadu@gmail.com</p>
+          <p class="text-white">
+             8867762336</p>
+          <p class="text-white">
+             9902587276</p>
+  
+        </div>
+         <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
+  
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold text-white">Useful links</h6>
+            
+            <p>
+              <a href="#!" class="text-white">About us</a>
+            </p>
+            
+        
+            
+  
+          </div>
+          <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 text-white bg-dark" >© 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" class="text-white">karunadu.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+      
+          
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+</body>
+</html>
