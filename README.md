@@ -22,7 +22,7 @@ Online tour packages booking, cancellation of booked packages and managing basic
 * Landing page /Home page
 
    scrollable page with parallax and carousel features
-  <img src="./screenshots/home.jpg" alt="drawing" width="auto" /> 
+  <img src="./screenshots/home.jpg" alt="drawing"  /> 
   <img src="./screenshots/home1.jpg" alt="drawing"  width="auto"/>
   <img src="./screenshots/home2.jpg" alt="drawing"  width="auto"/> 
   <img src="./screenshots/home3.jpg" alt="drawing"  width="auto"/>
