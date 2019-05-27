@@ -27,10 +27,10 @@ Online tour packages booking, cancellation of booked packages and managing basic
 
 * Signup and Signin page
 
- signup
- <img src="./screenshots/signup.jpg" alt="drawing"  width="auto"/>
+  signup
+  <img src="./screenshots/signup.jpg" alt="drawing"  width="auto"/>
 
-    signin
+  signin
   <img src="./screenshots/login.jpg" alt="drawing"  width="auto"/>
 
 
