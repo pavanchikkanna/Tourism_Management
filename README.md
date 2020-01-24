@@ -1,7 +1,7 @@
 # Karunadu
 A Tourism management system , which can be used as a Web app for Karnataka state Tourism company.
 
-# Developed using :hearts:
+# Developed with
 
  **MEAN** stack technology
  
